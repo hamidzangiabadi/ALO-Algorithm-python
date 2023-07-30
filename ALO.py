@@ -5,11 +5,6 @@ import matplotlib.pyplot as plt
 
 
 def obj(x):
-    """
-    The sphere function
-    :param x:
-    :return:
-    """
     num = 0
     for i in range(len(x)):
         num += x[0] ** 2 + x[1] ** 2
@@ -17,13 +12,6 @@ def obj(x):
 
 
 def boundary_check(value, lb, ub):
-    """
-    The boundary check
-    :param value:
-    :param lb: the lower bound
-    :param ub: the upper bound
-    :return:
-    """
     for i in range(len(value)):
         value[i] = max(value[i], lb[i])
         value[i] = min(value[i], ub[i])
@@ -41,7 +29,6 @@ def roulette(pro):
 
 
 def random_walk(t, iter, dim, lb, ub, pos):
-    # The random walk around pos
     if t < 0.1 * iter:
         w = 1
     elif t < 0.5 * iter:
@@ -82,14 +69,6 @@ def random_walk(t, iter, dim, lb, ub, pos):
 
 
 def main(pop, iter, lb, ub):
-    """
-    The main function of the ALO
-    :param pop: the population size
-    :param iter: the number of iterations
-    :param lb: the lower bound
-    :param ub: the upper bound
-    :return:
-    """
     # Step 1. Initialization
     dim = len(lb)  # dimension
     a_pos = []  # the position of ants
@@ -108,7 +87,7 @@ def main(pop, iter, lb, ub):
         al_score.index(elite_score)
     ]  # the position of the elite ant lion
     iter_best = []  # the global best of each iteration
-    con_iter = 0  # the convergence iteration
+    con_iter = 0 
 
     # Step 2. The main loop
     for t in range(iter):
@@ -162,9 +141,8 @@ def main(pop, iter, lb, ub):
 
 
 if __name__ == "__main__":
-    # Parameter settings
-    pop = 100
+    pop = 10
     iter = 300
-    lb = [-100] * 2
-    ub = [100] * 2
+    lb = [-10] * 2
+    ub = [10] * 2
     print(main(pop, iter, lb, ub))
